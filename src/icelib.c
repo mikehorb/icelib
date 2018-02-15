@@ -4536,12 +4536,10 @@ ICELIB_isNominatingCriteriaMet(ICELIB_VALIDLIST* pValidList,
   for (uint32_t i = 0; i < pCheckList->componentList.numberOfComponents; i++)
   {
     uint32_t id           = pCheckList->componentList.componentIds[i];
-    uint64_t max_priority = ICELIB_getMaxpairPriority(pCheckList, id);
 
     for (uint32_t j = 0; j < pValidList->pairs.numberOfElements; j++)
     {
-      if ( (pValidList->pairs.elements[j].pairPriority == max_priority) &&
-           (pValidList->pairs.elements[j].pLocalCandidate->componentid == id) )
+      if (pValidList->pairs.elements[j].pLocalCandidate->componentid == id)
       {
         have_highest_priority_pair[i] = true;
       }
